@@ -1,20 +1,17 @@
-import { useState } from "react";
 import React from "react";
-import FunctionContextComponent from "./FunctionContextComponent";
-export const ThemeContext = React.createContext();
-function App() {
-  const [darkTheme, setDarkTheme] = useState(true);
-  const toggleContext = () => {
-    setDarkTheme((prevTheme) => !prevTheme);
-  };
+import ComponentsC from "./components/ComponentsC";
+export const UserContext = React.createContext();
+export const ChannelContext = React.createContext();
+const App = () => {
   return (
     <>
-      <ThemeContext.Provider value={darkTheme}>
-        <button onClick={toggleContext}>Toggle Theme</button>
-        <FunctionContextComponent />
-      </ThemeContext.Provider>
+      <UserContext.Provider value={"Sourav"}>
+        <ChannelContext.Provider value={"Majumder"}>
+          <ComponentsC />
+        </ChannelContext.Provider>
+      </UserContext.Provider>
     </>
   );
-}
+};
 
 export default App;
